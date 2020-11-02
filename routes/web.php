@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'example'], function () {
+    Route::get('/', function () {
+        return view('example/child', [
+            'name' => '<i>Kingner</i>',
+            'data' =>[1,2,3,'a','b','c','一','二','三'] ,
+            'records' => []
+        ]);
+    });
+
+    Route::get('/index', 'Example@index');
+});
